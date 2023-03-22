@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Prediction</title>
+    <style>
+        body{ 
+            background-image: url("{{url_for('static', filename='insurance.jpg')}}");
+            background-size: cover;
+            background-repeat: no-repeat;
+           
+            background-position: center ;
+        }
+        .container{
+            text-align: center
+        }
+        button{
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 20px;
+            background-color:#e4e4e4;
+        }
+ 
+        #lb{
+            font-size: large;
+            font-style: oblique;
+            color: rgb(9, 1, 17);
+            font-weight: bold;
+
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <h1 style="text-align: center;font-style: oblique;color: rgb(240, 235, 243);color: rgb(8, 5, 0);">Insurance Predictor</h1>
+    <form method="POST" accept="/predict">
+        <div class="container">
+            <label id="lb">age</label><br>
+            <input type="text" name="age"><br><br>
+            <label id="lb">sex:</label><br>
+            <input id="lb" type="radio" name="sex" value="1">Male
+            <input id="lb" type="radio" name="sex" value="0">Female<br><br>
+            <label id="lb">bmi</label><br>
+            <input type="text" name="bmi"><br><br>
+            <label id="lb">children</label><br>
+            <input type="text" name="children"><br><br>
+            <label id="lb">smoker:</label><br>
+            <input id="lb" type="radio" name="smoker" value="1">Yes
+            <input id="lb" type="radio" name="smoker" value="0">No<br><br>
+            <label id="lb">region:</label><br>
+            <input id="lb" type="radio" name="region" value="0">Southwest
+            <input id="lb" type="radio" name="region" value="1">Southeast
+            <input id="lb" type="radio" name="region" value="2">Northwest
+            <input id="lb" type="radio" name="region" value="3">Northest<br><br>
+        </div>
+        <div class="container">
+            <button type="submit" formaction="/predict" style="text-align: center">Predict 
+            </button><br><br>
+        
+        </div>
+    </form>
+    <center>
+    <textarea rows="2" cols="40" style="background-color: lightcoral; text-align: center; font-weight: bolder;">
+        {{prediction_text}}
+    </textarea>
+    </center>
+</div>
+</body>
+</html>
