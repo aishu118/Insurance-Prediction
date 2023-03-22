@@ -23,4 +23,4 @@ def predict():
     return render_template('insurance.html',prediction_text='Insurance Price will be Rs. {}'.format(int(result)))
 
 
-app.run(debug=True,port=5001)
+#app.run(debug=True,port=5001)
